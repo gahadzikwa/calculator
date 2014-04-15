@@ -30,16 +30,10 @@ class Calculator extends Nette\Object
 
 	private $adapter;
 
-	private $comparator;
 
-
-	public function __construct($adapter = NULL, IComparator $comparator = NULL)
+	public function __construct($adapter = NULL)
 	{
 		$this->adapter = $adapter === NULL || is_numeric($adapter) ? $this->createAdapter($adapter ?: self::DEFAULT_PRECISION) : $adapter;
-		if ($comparator === NULL && !$this->adapter instanceof IComparator) {
-			throw new \InvalidArgumentException('Please provide valid comparator.');
-		}
-		$this->comparator = $comparator === NULL ? $this->adapter : $comparator;
 	}
 
 
