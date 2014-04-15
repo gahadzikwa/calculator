@@ -3,10 +3,9 @@
 namespace Rixxi\Calculator;
 
 use Kdyby;
-use Nette;
 
 
-class TemplateHelper extends Nette\Object
+class TemplateHelper
 {
 
     /** @var Calculator */

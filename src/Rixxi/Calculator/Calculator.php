@@ -3,7 +3,6 @@
 namespace Rixxi\Calculator;
 
 use Kdyby\Money\Money;
-use Nette;
 
 
 /**
@@ -12,7 +11,7 @@ use Nette;
  * @method mixed multiply(mixed $a, mixed $b)
  * @method mixed divide(mixed $a, mixed $b)
  */
-class Calculator extends Nette\Object
+class Calculator
 {
 
 	const DEFAULT_PRECISION = 8;
@@ -42,7 +41,7 @@ class Calculator extends Nette\Object
 			return $this->convertToResult(call_user_func_array(array($this->adapter, $name), $this->convertArguments($arguments)));
 
 		} else {
-			return parent::__call($name, $arguments);
+			throw new UnsupportedException("Method $name is not supported.");
 		}
 	}
 

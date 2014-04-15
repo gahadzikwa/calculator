@@ -2,11 +2,10 @@
 
 namespace Rixxi\Calculator\Adapters;
 
-use Nette;
 use Rixxi;
 
 
-class BcMathAdapter extends Nette\Object implements Rixxi\Calculator\IAdapter, Rixxi\Calculator\IComparator
+class BcMathAdapter implements Rixxi\Calculator\IAdapter, Rixxi\Calculator\IComparator
 {
 
 	/** @var int */
