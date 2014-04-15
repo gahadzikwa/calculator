@@ -17,7 +17,7 @@ class Calculator
 	const DEFAULT_PRECISION = 8;
 
 
-	/** @var array */
+	/** @var string[] */
 	private $operations = array(
 		'add',
 		'subtract',
@@ -26,9 +26,13 @@ class Calculator
 	);
 
 
+	/** @var IAdapter */
 	private $adapter;
 
 
+	/**
+	 * @param IAdapter|int Adapter instance or precision
+	 */
 	public function __construct($adapter = NULL)
 	{
 		$this->adapter = $adapter === NULL || is_numeric($adapter) ? $this->createAdapter($adapter ?: self::DEFAULT_PRECISION) : $adapter;
@@ -67,12 +71,24 @@ class Calculator
 	}
 
 
+	/**
+	 * Convert value from adapters internal format
+	 *
+	 * @param  mixed
+	 * @return mixed
+	 */
 	protected function convertToResult($value)
 	{
 		return $this->adapter->unpack($value);
 	}
 
 
+	/**
+	 * Converts arguments to adapters internal format
+	 *
+	 * @param  mixed[]
+	 * @return mixed[]
+	 */
 	protected function convertArguments($arguments)
 	{
 		$converted = array();
@@ -83,6 +99,7 @@ class Calculator
 	}
 
 
+	/** @return IAdapter */
 	private function createAdapter($precision)
 	{
 		if (extension_loaded('bcmath')) {

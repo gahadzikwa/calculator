@@ -13,7 +13,7 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 	private $precision;
 
 
-	/** @param int */
+	/** @inheritdoc */
 	public function __construct($precision)
 	{
 		$this->precision = (int) $precision;
@@ -21,6 +21,7 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 
 
 	/**
+	 * @inheritdoc
 	 * @param string
 	 * @param string
 	 * @return string
@@ -32,6 +33,7 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 
 
 	/**
+	 * @inheritdoc
 	 * @param string
 	 * @param string
 	 * @return string
@@ -43,6 +45,7 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 
 
 	/**
+	 * @inheritdoc
 	 * @param string
 	 * @param string
 	 * @return string
@@ -54,6 +57,7 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 
 
 	/**
+	 * @inheritdoc
 	 * @param string
 	 * @param string
 	 * @return string
@@ -66,6 +70,7 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 
 	/**
 	 * @inheritdoc
+	 * @param  mixed
 	 * @return string
 	 */
 	public function pack($value)
@@ -79,8 +84,9 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 
 
 	/**
-	 * @param string
-	 * @return string
+	 * @inheritdoc
+	 * @param  string
+	 * @return mixed
 	 */
 	public function unpack($value)
 	{
