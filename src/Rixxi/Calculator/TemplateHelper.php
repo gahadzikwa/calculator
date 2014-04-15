@@ -2,8 +2,6 @@
 
 namespace Rixxi\Calculator;
 
-use Kdyby;
-
 
 class TemplateHelper
 {
