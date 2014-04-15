@@ -3,7 +3,7 @@
 namespace Rixxi\Calculator;
 
 
-interface IAdapter // IArithmeticAdapter
+interface IAdapter
 {
 
 	/**
