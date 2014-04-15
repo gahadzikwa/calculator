@@ -38,14 +38,14 @@ interface IAdapter
 	 * Converts value to internal representation used for computations
 	 * @param float|string|int
 	 * @return mixed
-	 * @throws \Kdyby\Money\InvalidArgumentException
+	 * @throws InvalidArgumentException
 	 */
 	function pack($value);
 
 	/**
 	 * Converts value from internal representation to scalar value
 	 * @return float|string|int
-	 * @throws \Kdyby\Money\InvalidArgumentException
+	 * @throws InvalidArgumentException
 	 */
 	function unpack($value);
 

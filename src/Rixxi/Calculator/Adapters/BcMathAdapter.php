@@ -3,6 +3,7 @@
 namespace Rixxi\Calculator\Adapters;
 
 use Rixxi;
+use Rixxi\Calculator\InvalidArgumentException;
 
 
 class BcMathAdapter implements Rixxi\Calculator\IAdapter
@@ -70,7 +71,7 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 	public function pack($value)
 	{
 		if (!is_numeric($value)) {
-			throw new \InvalidArgumentException('BcMathCalculator only supports conversion from numeric value.');
+			throw new InvalidArgumentException('BcMathCalculator only supports conversion from numeric value.');
 		}
 
 		return is_float($value) ? number_format($value, $this->precision, '.', '') : (string) $value;
@@ -84,7 +85,7 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 	public function unpack($value)
 	{
 		if (!is_string($value)) {
-			throw new \InvalidArgumentException('BcMathCalculator only supports conversion from string to string.');
+			throw new InvalidArgumentException('BcMathCalculator only supports conversion from string to string.');
 		}
 
 		return $value;
