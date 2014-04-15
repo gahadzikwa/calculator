@@ -46,6 +46,27 @@ class Calculator
 	}
 
 
+	/**
+	 * @param  mixed
+	 * @return string
+	 */
+	public function getDecimal($value)
+	{
+		if ($value instanceof IDecimal) {
+			return $value->toDecimal();
+
+		} elseif ($value instanceof Money) {
+			return $value->toDecimal();
+
+		} elseif (is_int($value) || is_float($value)) {
+			return $value;
+
+		} else {
+			throw new InvalidArgumentException(is_object($value) ? "Value " . get_class($value) . " is not instance of Rixxi\\Calculator\\IDecimal or supported decimal." : "Value '$value' is not valid decimal number.");
+		}
+	}
+
+
 	protected function convertToResult($value)
 	{
 		return $this->adapter->unpack($value);
@@ -56,10 +77,7 @@ class Calculator
 	{
 		$converted = array();
 		foreach ($arguments as $argument) {
-			if ($argument instanceof Money) {
-				$argument = $argument->toDecimal();
-			}
-			$converted[] = $this->adapter->pack($argument);
+			$converted[] = $this->adapter->pack($this->getDecimal($argument));
 		}
 		return $converted;
 	}

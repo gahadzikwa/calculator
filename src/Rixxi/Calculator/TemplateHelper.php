@@ -18,7 +18,7 @@ class TemplateHelper
 
 	public function percent($value)
 	{
-		return $this->calculator->multiply($this->parseDecimal($value), 100);
+		return $this->calculator->multiply($this->calculator->getDecimal($value), 100);
 	}
 
 
@@ -30,20 +30,6 @@ class TemplateHelper
 		list($number, $decimals) = explode('.', $value);
 		$decimals = rtrim($decimals, '0');
 		return $decimals === '' ? $number : $number . '.' . $decimals;
-	}
-
-
-	private function parseDecimal($value)
-	{
-		if ($value instanceof IDecimal) {
-			return $value->toDecimal();
-
-		} elseif (Helper::isDecimal($value)) {
-			return $value;
-
-		} else {
-			throw new \Exception('Value must be int, float or well formed bigint (string).');
-		}
 	}
 
 }
