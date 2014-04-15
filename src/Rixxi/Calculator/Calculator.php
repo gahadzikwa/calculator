@@ -26,7 +26,6 @@ class Calculator
 		'divide',
 	);
 
-
 	/** @var IAdapter */
 	private $adapter;
 
