@@ -5,7 +5,7 @@ namespace Rixxi\Calculator\Adapters;
 use Rixxi;
 
 
-class BcMathAdapter implements Rixxi\Calculator\IAdapter, Rixxi\Calculator\IComparator
+class BcMathAdapter implements Rixxi\Calculator\IAdapter
 {
 
 	/** @var int */
@@ -60,18 +60,6 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter, Rixxi\Calculator\IComp
 	public function subtract($a, $b)
 	{
 		return bcsub($a, $b, $this->precision);
-	}
-
-
-	/**
-	 * @param string
-	 * @param string
-	 * @inheritdoc
-	 */
-	public function compare($a, $b)
-	{
-		// TODO '-0.0' != '0.0'
-		return bccomp($a, $b, $this->precision);
 	}
 
 
