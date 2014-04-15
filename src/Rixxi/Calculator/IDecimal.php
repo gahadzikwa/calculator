@@ -2,9 +2,6 @@
 
 namespace Rixxi\Calculator;
 
-use Nette;
-use Rixxi;
-
 
 interface IDecimal
 {

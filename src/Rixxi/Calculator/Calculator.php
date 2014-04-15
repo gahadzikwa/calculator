@@ -2,7 +2,6 @@
 
 namespace Rixxi\Calculator;
 
-use Kdyby;
 use Kdyby\Money\Money;
 use Nette;
 
