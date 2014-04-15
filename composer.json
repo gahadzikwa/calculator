@@ -1,0 +1,27 @@
+{
+	"name": "rixxi/calculator",
+	"license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
+	"authors": [
+		{
+			"name": "Michal Gebauer",
+			"homepage": "http://mishak.net"
+		}
+	],
+	"support": {
+		"email": "rixxi+mishak@mishak.net",
+		"issues": "https://github.com/rixxi/calculator/issues"
+	},
+	"require": {
+		"nette/nette": "@dev",
+		"kdyby/annotations": "@dev",
+		"symfony/property-access": "~2.3"
+	},
+	"autoload": {
+		"psr-0": {
+			"Rixxi\\Calculator\\": "src/"
+		},
+		"classmap": [
+			"src/Rixxi/Calculator/exceptions.php"
+		]
+	}
+}
