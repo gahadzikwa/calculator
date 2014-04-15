@@ -12,9 +12,7 @@
 		"issues": "https://github.com/rixxi/calculator/issues"
 	},
 	"require": {
-		"nette/nette": "@dev",
-		"kdyby/annotations": "@dev",
-		"symfony/property-access": "~2.3"
+		"php": ">=5.3.1"
 	},
 	"autoload": {
 		"psr-0": {
