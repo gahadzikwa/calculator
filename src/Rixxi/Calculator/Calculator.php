@@ -16,6 +16,7 @@ class Calculator
 
 	const DEFAULT_PRECISION = 8;
 
+	const DECIMAL_REGEX = '/^-?([1-9][0-9]*|0)(.[0-9]*)?$/D';
 
 	/** @var string[] */
 	private $operations = array(
@@ -62,7 +63,7 @@ class Calculator
 		} elseif ($value instanceof Money) {
 			return $value->toDecimal();
 
-		} elseif (is_int($value) || is_float($value)) {
+		} elseif (is_int($value) || is_float($value) || is_string($value) && preg_match(self::DECIMAL_REGEX, $value) === 1) {
 			return $value;
 
 		} else {
