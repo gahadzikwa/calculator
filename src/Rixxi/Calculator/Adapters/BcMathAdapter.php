@@ -95,6 +95,10 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 			throw new InvalidArgumentException('BcMathCalculator only supports conversion from string to string.');
 		}
 
+		if (($pos = strpos($value, Calculator::DECIMAL_SEPARATOR)) !== FALSE) {
+			$value = rtrim(rtrim($value, '0'), '.');
+		}
+
 		return $value;
 	}
 
