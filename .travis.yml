@@ -10,7 +10,7 @@ matrix:
     allow_failures:
         - php: hhvm
 
-script: vendor/bin/tester tests -s -c tests/php-unix.ini
+script: vendor/bin/tester tests -s -c tests/php.ini-unix
 
 after_failure:
     # Print *.actual content
