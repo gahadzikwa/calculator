@@ -16,6 +16,8 @@ class Calculator
 
 	const DEFAULT_PRECISION = 8;
 
+	const DECIMAL_SEPARATOR = '.';
+
 	/** @var string[] */
 	private $operations = array(
 		'add',
