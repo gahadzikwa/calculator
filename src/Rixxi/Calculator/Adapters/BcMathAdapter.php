@@ -80,6 +80,14 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 			throw new InvalidArgumentException('BcMathAdapter only supports conversion from numeric value.');
 		}
 
+		if (is_string($value)) {
+			if (($pos = strpos($value, Calculator::DECIMAL_SEPARATOR)) !== FALSE
+			&& ($diff = strlen($value) - $pos - 1) > $this->precision) {
+				$value = substr($value, 0, $this->precision - $diff);
+			}
+			return rtrim($value, '.') ?: '0';
+		}
+
 		return is_float($value) ? number_format($value, $this->precision, Calculator::DECIMAL_SEPARATOR, '') : (string) $value;
 	}
 
