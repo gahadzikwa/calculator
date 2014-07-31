@@ -39,6 +39,18 @@ class Calculator
 	}
 
 
+	public function min($a, $b)
+	{
+		return $this->convertToResult($this->doMinMax($this->convertArguments(func_get_args()), 1));
+	}
+
+
+	public function max($a, $b)
+	{
+		return $this->convertToResult($this->doMinMax($this->convertArguments(func_get_args()), -1));
+	}
+
+
 	public function equal($a, $b)
 	{
 		return call_user_func_array(array($this->adapter, 'compare'), $this->convertArguments(func_get_args())) === 0;
@@ -114,6 +126,18 @@ class Calculator
 		} else {
 			throw new RuntimeException("BcMath extension must be enabled.");
 		}
+	}
+
+
+	private function doMinMax($arguments, $expected)
+	{
+		$a = array_shift($arguments);
+		while (($b = array_shift($arguments)) !== NULL) {
+			if ($this->adapter->compare($a, $b) === $expected) {
+				$a = $b;
+			}
+		}
+		return $a;
 	}
 
 }
