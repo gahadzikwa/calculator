@@ -105,6 +105,13 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 
 		if (($pos = strpos($value, Calculator::DECIMAL_SEPARATOR)) !== FALSE) {
 			$value = rtrim(rtrim($value, '0'), '.');
+			if ($value === '') {
+				$value = '0';
+			}
+		}
+
+		if ($value === '-0') {
+			$value = '0';
 		}
 
 		return $value;

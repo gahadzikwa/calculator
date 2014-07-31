@@ -55,6 +55,12 @@ class BcMathAdapterTest extends Tester\TestCase
 	{
 		return array(
 			array('0.00000000', 8, '0'),
+			array('.00000000', 8, '0'),
+			array('.', 8, '0'),
+			array('-0.0', 1, '0'),
+			array('-0.1000', 1, '-0.1'),
+			array('-0.0', 8, '0'),
+			array('-0', 8, '0'),
 		);
 	}
 
