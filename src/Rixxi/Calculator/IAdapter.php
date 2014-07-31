@@ -38,6 +38,13 @@ interface IAdapter
 	function multiply($a, $b);
 
 	/**
+	 * @param  mixed
+	 * @param  mixed
+	 * @return int 0 if the two operands are equal, 1 if the left operand is larger than the right operand, -1 otherwise.
+	 */
+	function compare($a, $b);
+
+	/**
 	 * Converts value to internal representation used for computations
 	 *
 	 * @param  float|string|int

@@ -39,6 +39,12 @@ class Calculator
 	}
 
 
+	public function equal($a, $b)
+	{
+		return call_user_func_array(array($this->adapter, 'compare'), $this->convertArguments(func_get_args())) === 0;
+	}
+
+
 	public function __call($name, $arguments)
 	{
 		if (in_array($name, $this->operations, TRUE)) {

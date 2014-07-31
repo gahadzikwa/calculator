@@ -71,6 +71,18 @@ class BcMathAdapter implements Rixxi\Calculator\IAdapter
 
 	/**
 	 * @inheritdoc
+	 * @param  string
+	 * @param  string
+	 * @return int
+	 */
+	public function compare($a, $b)
+	{
+		return bccomp($a, $b, $this->precision);
+	}
+
+
+	/**
+	 * @inheritdoc
 	 * @param  mixed
 	 * @return string
 	 */
